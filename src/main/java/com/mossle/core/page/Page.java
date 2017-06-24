@@ -2,7 +2,6 @@ package com.mossle.core.page;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -240,7 +239,10 @@ public class Page {
 
         this.orderBys.clear();
         this.orderBys.add(orderBy);
-        this.setOrder(ASC);
+
+        if (this.getOrders().size() != 1) {
+            this.setOrder(ASC);
+        }
     }
 
     /** @return order. */
